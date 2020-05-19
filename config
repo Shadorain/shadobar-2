@@ -88,8 +88,8 @@ font-14="M+ 1m:style=Medium:size=6;3"
 
 modules-right = cpu memory pulseaudio battery
 # }}}
-# MYBar {{{
-[bar/mybar]
+# ONLY ONE I USE NOW: shadobar {{{
+[bar/shadobar]
 enable-ipc=true
 height = 30
 width = 100%
@@ -192,23 +192,27 @@ label-urgent-padding = 2
 label-empty = %icon%
 label-empty-background = ${colors.background}
 label-empty-padding = 2
-label-empty-foreground = ${colors.color1}
+label-empty-foreground = #1ea69d
 
-label-monocle = "  "
+label-monocle = "%{A1:bspc desktop -l next:}  %{A}"
 label-foreground = ${colors.color1}
-label-tiled = "  "
+label-tiled = "%{A1:bspc desktop -l next:}  %{A}"
 #label-tiled = " "
 label-tiled-foreground = #614df7
-label-floating = "  "
+label-floating = "%{A1:bspc node focused.tiled -t floating || bspc node focused.floating -t tiled:}  %{A}"
 label-floating-foreground = ${colors.color1}
-label-fullscreen = "  "
+label-fullscreen = "%{A1:/home/shadow/.config/scripts/bspfullscreen:}  %{A}"
 label-fullscreen-foreground = #2fccaa
-label-locked = "  "
+label-locked = "%{A1:bspc desktop -l next:}  %{A}"
 label-locked-foreground = #bf4373
-label-sticky = "  "
+label-sticky = "%{A1:bspc desktop -l next:}  %{A}"
 label-sticky-foreground = ${colors.color1}
-label-private = "  "
+label-private = "%{A1:bspc desktop -l next:}  %{A}"
 label-private-foreground = #4349bf
+label-hidden = "%{A1:bspc desktop -l next:}  %{A}"
+label-hidden-foreground = ${colors.color1}
+
+label-dimmed-foreground = #555
 
 format-foreground = ${colors.color1}
 format-background = #1B1B29
@@ -249,6 +253,9 @@ menu-0-2 = ""
 menu-0-2-exec = /home/shadow/.config/rofi/scripts/apps.sh
 menu-0-3 = ""
 menu-0-3-exec = /home/shadow/.config/rofi/scripts/quicklinks.sh
+menu-0-4 = ""
+menu-0-4-exec = /home/shadow/.config/rofi/scripts/gitrepos.sh
+
 
 #[module/overflow]
 #type = custom/text

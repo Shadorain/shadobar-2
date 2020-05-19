@@ -1,0 +1,174 @@
+
+// ----------------------------------------------------- \\
+//                                                       \\
+//          ROFI ShadoRain Window Theme Config           \\
+//                                                       \\
+// ----------------------------------------------------- \\
+/* Description {{{
+ * ROFI ShadoRain 
+ *
+ * Author: Shadorain
+ *
+ */
+//}}}
+// * {{{
+* {
+  black:      #000000;
+  red:        #eb6e67;
+  green:      #95ee8f;
+  yellow:     #f8c456;
+  blue:       #6eaafb;
+  mangenta:   #d886f3;
+  cyan:       #6cdcf7;
+  emphasis:   #50536b;
+  text:       #dfdfdf;
+  text-alt:   #b2b2b2;
+  fg:         #5ADECD;
+  //fg:         #abb2bf;
+  bg:         #09090d;   //#1c162e;
+  //bg:         #282c34;
+
+  spacing: 0;
+  background-color: #1B1B29; //#09090d; //rgb (28, 22, 46);
+
+  font: "Hack Nerd Font 12";
+  text-color: #5ADECD;
+  //text-color: @text;
+  //border-color: #991559;
+  //border: 2px;
+  /*margin: 0px 0px 0px 16px;*/
+}
+//}}}
+// Window {{{
+window {
+  //transparency: "real";
+  fullscreen: false;
+  border-color: #2f2f4a; //#991559;
+  border: 2px;
+  //background-color: #282c34dd;
+  //background-color: rgba (28, 22, 46, 90%);
+  location: north west;
+  anchor: north west;
+  width: 35%;
+  height: 15%;
+  children: [mainbox]; 
+}
+//}}}
+// Mainbox {{{
+mainbox {
+  padding: 10 20;
+}
+//}}}
+// Input Bar {{{
+#inputbar {
+  border-color: #8897F4;
+  margin: 10px 0px;
+  //margin: 0px 0px 10px 0px;
+  /*border: 0 0 1px 0;*/
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+//}}}
+// Prompt {{{
+
+prompt,
+textbox-prompt-colon {
+  /*border-color: #8897F4;*/
+  //border-color: #2e343f;
+  /*padding: 8px;*/
+  /*margin: 10px 0px;*/
+  border: 2px;
+  border-color: #7E57C0;
+}
+
+#prompt {
+  /*margin: 0px 0px 0px -2px;*/
+  background-color: #1B1B29; //#2f2f4a; //background-light;
+  text-color: @accent;
+  border-color: #7E57C0;
+}
+
+//}}}
+// Textbox-Prompt-Colon {{{
+#textbox-prompt-colon {
+  expand: false;
+  str: " ";
+  background-color: #7E57C0; //#2f2f4a;
+  text-color: #1B1B29;
+  padding: 10px 20px 10px 20px;
+  border: 2px;
+  border-color: #7E57C0;
+}
+
+#horibox {
+    children: [ listview ];
+    padding: 0px;
+}
+
+//}}}
+// Entry {{{
+entry {
+    padding: 10px 20px 10px 20px;
+  /*padding: 8px 5px 10px 10px;*/
+    /*margin: 10px 0px;*/
+    background-color: #1B1B29;
+    border: 2px;
+    border-color: #7E57C0;
+    margin: 0 150px 0 0px;
+    text-color: #BFAAE3;
+}
+//}}}
+// List View {{{
+listview {
+  margin: 0 0 -1px 0;
+  layout: horizontal;
+  cycle: false;
+  spacing: 10px;
+  dynamic: true;
+  scrollbar: false;
+}
+//}}}
+// -- Element -- {{{
+element {
+  padding: 22px 20px 20px 20px;
+  /*padding: 5px;*/
+  text-color: #BFAAE3;
+  background-color: #2f2f4a;
+  highlight: bold #95ee8f; /* green */
+  //border-radius: 3px;
+}
+
+// Element Selected {{{
+element selected {
+  background-color: #7E57C0; //#8897F4;
+  text-color: #1B1B29;
+  /*text-color: #31239e;*/
+}
+// }}}
+// Element (Selected) Urgent {{{
+element urgent, element selected urgent {
+  text-color: @red;
+}
+// }}}
+// Element (Selected) Active {{{
+element active, element selected active {
+  text-color: @purple;
+}
+// }}}
+//}}}
+// Message {{{
+message {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @emphasis;
+  border: 1px;
+  border-color: @cyan;
+}
+//}}}
+// Button Selected {{{
+button selected {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @emphasis;
+}
+//}}}
+// ----------------------------------------------------- \\ 

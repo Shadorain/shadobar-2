@@ -1,0 +1,10 @@
+//REDONE by Shadorain
+* {
+  accent:           #7e57c2;
+  background:       #1B1B29;
+  /*background:       #212121;*/
+  background-light: #2f2f4a;
+  foreground:       #bfaae3;
+  on:               #12a389;
+  off:              #4f35c4;
+}

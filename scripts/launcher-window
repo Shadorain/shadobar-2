@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -show window -window-format '{w}: {c}' -theme ~/.config/rofi/themes/onedark-window.rasi -no-show-icons -display-window '' #" "

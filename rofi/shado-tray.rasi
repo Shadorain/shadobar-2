@@ -1,0 +1,106 @@
+
+/*
+ *
+ * Author : Shadorain (shado)
+ * Mail : shadorainwraith@gmail.com
+ * Github : @Shadorain
+ * Reddit : @Shadorain
+ *
+ */
+
+@import "colors.rasi"
+
+/* ########### */
+
+* {
+  /* General */
+  text-font:                            "Comfortaa 6";
+  icon-font:                            "Hurmit Nerd Font Mono 16";
+  icon-font-small:                      "Hurmit Nerd Font Mono 12";
+
+  option-6-listview-spacing:            0px;
+
+  menu-window-padding:                   0px 0px;
+  menu-element-border:                   10px;
+  menu-element-padding:                  -3px 5px -8px -30px;
+}
+
+/* ########### */
+
+#window {
+  width: 9.4%;
+  height: 3.9%;
+  border: 2px;
+  border-color: #2f2f4a;
+  x-offset: -66px;
+  y-offset: 26px;
+}
+
+/* ########### */
+
+* {
+  background-color: @background;
+  text-color: @foreground;
+  font: @icon-font;
+}
+
+#horibox {
+  children: [ listview ];
+}
+#listview {
+  layout: horizontal;
+}
+#element {
+  padding: @option-element-padding;
+  background-color: @background-light;
+}
+#element.selected {
+  background-color: @accent;
+  text-color: @background;
+}
+
+/* ########### */
+
+* {
+  font: @text-font;
+}
+#window {
+  padding: @menu-window-padding;
+  children: [ horibox ];
+}
+
+#horibox {
+  padding: 0px;
+}
+#listview {
+  spacing: @option-6-listview-spacing;
+  lines: 6;
+}
+#element {
+  font: @icon-font;
+  border: @menu-element-border;
+  padding: @menu-element-padding;
+  border-color: @background-light;
+}
+#element.selected {
+  border-color: @accent;
+}
+element.active,
+element.selected.urgent {
+  background-color: @on;
+  text-color: @background;
+  border-color: @on;
+}
+element.selected.urgent {
+  border-color: @accent;
+}
+element.urgent,
+element.selected.active {
+  background-color: @off;
+  text-color: @background;
+  border-color: @off;
+}
+element.selected.active {
+  border-color: @accent;
+}
+
