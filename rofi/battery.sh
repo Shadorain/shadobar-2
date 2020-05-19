@@ -1,9 +1,9 @@
 #!/bin/sh
 
-## Author : Aditya Shakya (adi1090x)
-## Mail : adi1090x@gmail.com
-## Github : @adi1090x
-## Reddit : @adi1090x
+## Author : Shadorain
+## Mail : Shadorain@gmail.com
+## Github : @Shadorain
+## Reddit : @Shadorain
 
 rofi_command="rofi -theme themes/battery.rasi"
 
