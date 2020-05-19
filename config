@@ -21,74 +21,7 @@ color3 = #8897F4
 ; | '_ \ / _` | '__/ __|
 ; | |_) | (_| | |  \__ \
 ; |_.__/ \__,_|_|  |___/
-# Desktops {{{
-[bar/desktops]
-enable-ipc=true
-height = 30
-;width = 5% 
-width = 7.4%
-monitor = "HDMI-0"
-;radius = 10 
-
-border-size = 1
-border-color = #b03356
-;#5ADECD 
-
-background = #aa09090d 
-;background = ${colors.primary}
-foreground = ${colors.color1}
-
-line-size = 2
-
-override-redirect = true
-offset-y = 95.5%
-offset-x = 1%
-
-font-0=Iosevka:size=11;3
-font-1=Font Awesome 5 Free Solid:size=11;3
-font-2=Font Awesome 5 Free Regular:size=11;3
-font-3=Font Awesome 5 Brands:size=11;3
-font-4=font\-logos:size=14;3
-font-5=IPAGothic:size=12:antialias=true;3
-
-modules-left = bspwml
-pseudo-transpareny = true
-# }}}
-# Bottom {{{
-[bar/bottom]
-enable-ipc=true
-height = 30
-width = 22%
-
-background = #0009090d 
-;background = ${colors.primary}
-foreground = ${colors.color1}
-;bottom = true
-;tray-position = right
-;line-size = 2
-
-override-redirect = true
-offset-y = 97.4% 
-offset-x = 77.4%
-
-font-0=Iosevka:size=9;3
-font-1=Font Awesome 5 Free Solid:size=9;3
-font-2=Font Awesome 5 Free Regular:size=9;3
-font-3=Font Awesome 5 Brands:size=9;3
-font-4=font\-logos:size=12;3
-font-5=IPAGothic:size=9:antialias=true;3
-font-6=icomoon\-feather:size=9;2
-font-7="M+\1m:style=Medium:size=12;3"
-font-8="M+\1m:style=Medium:size=10;3"
-font-10="M+ 1m:style=Medium:size=8;3"
-font-11="M+ 1m:style=Medium:size=9;3"
-font-12="M+ 1m:style=Medium:size=14;3"
-font-13="M+ 1m:style=Medium:size=10;3"
-font-14="M+ 1m:style=Medium:size=6;3"
-
-modules-right = cpu memory pulseaudio battery
-# }}}
-# ONLY ONE I USE NOW: shadobar {{{
+# Shadobar {{{
 [bar/shadobar]
 enable-ipc=true
 height = 30
@@ -477,194 +410,7 @@ margin-bottom = 0
 # }}}
 # --------------------------------------------------------------- #
 # Unused Modules {{{
-[module/launcher]
-type=custom/text
-content = 
-content-font=5
-content-foreground=${colors.color1}
-content-padding=2
-click-left=/home/shadow/.config/scripts/launcher
-
-/*[module/bspwm]*/
-/*type = internal/bspwm*/
-/*format = <label-state> <label-mode>*/
-/*format-foreground = ${colors.color1}*/
-/*format-background = ${colors.background}*/
-/*index-sort = true*/
-
-/*enable-click = true*/
-/*reverse-scroll = false*/
-
-/*label-focused = %index%*/
-/*label-focused-overline = ${colors.color1}*/
-/*label-focused-padding = 2*/
-
-/*label-unfocused = %index%*/
-/*label-unfocused-padding = 1*/
-
-/*label-urgent = */
-/*label-urgent-padding = 2*/
-/*label-urgent-foreground = ${colors.background}*/
-/*label-urgent-background = ${colors.color1}*/
-/*label-urgent-overline = ${colors.background}*/
-/*label-urgent-font = 2*/
-
-/*;ws-icon-0 = 1;*/
-/*;ws-icon-1 = 2;*/
-/*;ws-icon-2 = 3;*/
-/*;ws-icon-9 = 10;*/
-/*;ws-icon-default = */
-
-[module/bspwml]
-type = internal/bspwm
-format = <label-state> 
-;format-foreground = ${colors.color1}
-;format-background = ${colors.background}
-index-sort = true
-;strip-wsnumbers = true
-;wrapping-scroll = true 
-pin-workspaces = true 
-
-enable-click = true
-reverse-scroll = false
-
-label-visible = %name%
-label-urgent = %name%
-label-focused = %name%
-label-focused-underline = ${colors.color1}
-label-focused-padding = 2 
-
-label-unfocused = %name%
-;label-unfocused-foreground = #0a070f
-label-unfocused-padding = 1
-
-;ws-icon-default = 
-;ws-icon-0 = "I:8";  
-;ws-icon-1 = "II:9";   
-;ws-icon-2 = "III:0"; 
-
-;margin = 2
-;padding = 2
-
-[module/sound]
-type = custom/script
-tail = true
-label = %output%
-/*format-overline = ${colors.color1}*/
-
-exec = /home/shadow/.config/polybar/pulseaudio-control.zsh listen
-click-left = /home/shadow/.config/polybar/pulseaudio-control.zsh togmute
-click-right = kitty pulsemixer
-click-middle = /home/shadow/.config/rofi/scripts/volume.sh
-scroll-up = /home/shadow/.config/polybar/pulseaudio-control.zsh up
-scroll-down = /home/shadow/.config/polybar/pulseaudio-control.zsh down
-label-padding-left = 2
-label-padding-right = 1
-
-[module/wlan]
-type = internal/network
-interface = wlp0s20f3
-interval = 3.0
-click-left = /home/shadow/.config/rofi/scripts/network.sh
-format-connected =  <label-connected>
-label-connected = %essid%
-label-connected-color1 = ${colors.color1}
-
-;format-disconnected =
-format-disconnected = <label-disconnected>
-label-disconnected = %ifname% disconnected
-label-disconnected-color1 = ${colors.color1}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-color1 = ${colors.color1}
-
-[module/eth]
-type = internal/network
-interface = eno1
-interval = 3.0
-
-format-connected-prefix = " "
-format-connected-prefix-color1 = ${colors.color1-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-color1 = ${colors.color1-alt}
-
-
-[module/date]
-type = custom/text
-content =  
-click-left = /home/shadow/.config/rofi/scripts/time.sh
-padding-right = 0.5
-
-[module/cbat]
-type = custom/script
-label-font = 15
-label = %output%
-exec = /home/shadow/Downloads/polybar_another_battery/polybar_ab -polybar -thr 10
-tail = true
-click-left = /home/shadow/.config/rofi/scripts/battery.sh
-label-padding = 1 
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format =  <label>
-format-warn = <ramp> <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-color1 = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1 
-format-margin = 0 
-format-background = ${colors.background}
-format-foreground = ${colors.color3}
-format-padding = 3 
-
-label-open = 
-label-close = 
-label-separator = |
-
-; reboot
-menu-0-1 = 
-menu-0-1-exec = /home/shadow/.config/scripts/prompt "Reboot?" "reboot" 
-; poweroff
-menu-0-2 = 
-menu-0-2-exec = "kitty nvim ~/vimwiki/diary/diary.md && /home/shadow/.config/scripts/prompt "Shut Down?" "shutdown -h now""
-; logout
-menu-0-0 = 
-menu-0-0-exec = /home/shadow/.config/scripts/prompt "Logout?" "bspwm exit"
-
-;menu-2-0 = 
-;menu-2-0-exec = reboot
-
-;menu-3-0 = 
-;menu-3-0-exec = poweroff
-
-;menu-1-0 = 
-;menu-1-0-exec = dmenu 
-
-;Spotify modules
-
+# SPOTIFY MODULES {{{
 [module/previous]
 type = custom/script
 format-font = 2
@@ -673,7 +419,6 @@ format-foreground = ${colors.color2}
 exec = echo ""
 exec-if = "pgrep spotify"
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-
 
 [module/next]
 type = custom/script
@@ -698,7 +443,6 @@ hook-2 = echo ""
 initial = 2
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
-
 [module/spotify]
 type = custom/ipc
 format-foreground = ${colors.color2}
@@ -710,5 +454,6 @@ initial = 2
 tail = true
 interval = 10
 click-left = bspc desktop -f II
+#  }}}
 # }}}
 # --------------------------------------------------------------- #
