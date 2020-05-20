@@ -1,0 +1,20 @@
+#!/bin/sh
+
+bat_capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+bat_status=$(cat /sys/class/power_supply/BAT0/status)
+time_rem=$(acpi | cut -d " " -f5-)
+
+while [$bat_status -ne "Full"]:
+do
+    if [[ $bat_status == "Charging" ]]; then
+        dunstify -u normal "Battery" "Charging: $time_rem"
+    elif [[ $bat_status == "Discharging" ]]; then
+        dunstify -u normal "Battery" "Unplugged: $time_rem"
+        if [[ $bat_capacity -le 10 ]]; then
+            dunstify -r 12983 -u critical "Battery" "Low Battery: $time_rem"
+        elif [[ $bat_capacity -le 20 ]]; then
+            dunstify -r 12983 -u critical "Battery" "Low Battery: $time_rem"
+        fi
+    fi
+    sleep 1 
+done

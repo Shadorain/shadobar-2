@@ -40,19 +40,7 @@ font-2=Font Awesome 5 Free Regular:size=10;3
 font-3=Font Awesome 5 Brands:size=11;3
 font-4=font\-logos:size=14;3
 font-5=IPAGothic:size=12:antialias=true;3
-font-6=icomoon\-feather:size10;2
-font-7="M+\1m:style=Medium:size=16;3"
-font-8="M+\1m:style=Medium:size=12;3"
-font-10="M+ 1m:style=Medium:size=10;3"
-font-11="M+ 1m:style=Medium:size=11;3"
-font-12="M+ 1m:style=Medium:size=16;3"
-font-13="M+ 1m:style=Medium:size=12;3"
-font-14="M+ 1m:style=Medium:size=7;3"
-font-15="Tamsyn:pixelsize=12;0"
-
-/*font-15="siji:style=Medium:size=11;3"*/
-;font-6="Iosevka Nerd Font:pixelsize=13;3"
-;font-7="Fantasque Sans Mono:pixelsize=10;3"
+font-6="M+ 1m:style=Medium:size=16;3"
 
 modules-left = launcher bspwm 
 modules-center = mpd previous next spotify
@@ -62,7 +50,7 @@ modules-right = time sep overflow sep pulseaudio sep battery power
 # --------------------------------------------------------------- #
 # Layout {{{
 [layout]
-icon-font = 12 
+icon-font = 6
 icon-padding = 1 
 /*module-padding = 2 */
 
@@ -458,7 +446,7 @@ format-foreground = ${colors.color2}
 ; Default
 hook-0 = echo ""
 ; Playing/paused show song name and artist
-hook-1 = python3 ~/.scripts/spotify/spotify_status.py
+hook-1 = python3 ~/.config/scripts/spotify_status.py
 initial = 2
 tail = true
 interval = 10

@@ -1,0 +1,10 @@
+configuration {
+    modi: "window,run,ssh,drun,calc";
+    show-icons: true;
+    icon-theme: "Papirus";
+    location: 3;
+    font: "Iosevka 11";
+    yoffset: 42;
+    /*xoffset: 16;*/
+    theme: "~/.config/rofi/themes/shadodark.rasi";
+}
