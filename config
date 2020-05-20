@@ -81,6 +81,15 @@ wm-restack = bspwm
 ; | '_ ` _ \ / _ \ / _` | | | | |/ _ \/ __|
 ; | | | | | | (_) | (_| | |_| | |  __/\__ \
 ; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
+# Launcher {{{
+[module/launcher]
+type=custom/text
+content = 
+content-font=5
+content-foreground=${colors.color1}
+content-padding=2
+click-left=/home/shadow/.config/scripts/launcher
+# }}}
 # XWindow {{{
 [module/xwindow]
 type = internal/xwindow
