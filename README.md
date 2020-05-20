@@ -12,6 +12,20 @@ All rofi files that are integrated into the bar are in the rofi/ directory (note
 * Works with everything!
   * *I personally like rofi the best because of how pretty it can be, but you can you anything you like!*
 
+# Installation
+1. first move shadobar directory to *~/.config* and rename the whole directory to polybar: `mv ~/.config/shadobar ~/.config/polybar`
+2.  cd into polybar directory:
+  * `cd ~/.config/polybar/`
+3. run 
+  * `sed -i 's|shadow|YOURUSERHERE|g' *; sed -i 's|shadow|YOURUSERHERE|g' rofi/scripts/*; sed -i 's|shadow|YOURUSERHERE|g' rofi/themes/*`
+4. Copy/move the entire rofi directory into *.config*
+  * `cp ~/.config/polybar/rofi ~/.config/rofi`
+5. (Optional) finally set *~/.config/polybar/launch.sh &* where you would like polybar to auto start from.
+  * I personally like having it in my bspwmrc
+  * `echo "polybar shadobar &" >> ~/.config/bspwm/bspwmrc`
+-- And there you go! You have succesfully installed Shadobar! --
+     ( Please give feedback if certain things do not work )
+
 # Some Screenshots!
 ## Full-bar
 Desc: Shot of the full bar,
