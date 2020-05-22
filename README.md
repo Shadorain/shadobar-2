@@ -4,17 +4,17 @@ All rofi files that are integrated into the bar are in the rofi/ directory, that
 
 ## Why Shadobar
 * Every single visible module is fully interactive.
-  * *Some parts scroll, some parts just clicking, either way: fully interactive.*
-* It's quite pretty (atleast imo!)
+  * *Some parts scroll, some parts just clicking, either way: fully interactive. Certain i3 things are missing because I just do not know anything i3, but the i3 config should fix alot)*
+* It's quite pretty (atleast in my opinion!)
   * *very clean and compact look, the underlines and overlines and the other features I added make it so much more beautiful.*
 * Quite simple to understand
   * *Simple to change up and make perfect for yourself!*
-    * _Every single color is customizable right at the top of your config now_
-* Works with everything!
+  * *very single color is customizable right at the top of your config now*
+* Works with any launcher!
   * *I personally like rofi the best because of how pretty it can be, but you can use anything you like (only rofi is included though)!*
 
 ##### TODO's
-* [ ] I3wm Support/Fork (anyone willing to help, much appreciated)
+* [X] ~~I3wm Support/Fork (anyone willing to help, much appreciated)~~
 * [X] ~~Easier color change features for nicer theming~~
 * [X] ~~Make hotswapping available~~
 
@@ -22,22 +22,26 @@ All rofi files that are integrated into the bar are in the rofi/ directory, that
 ## Installation
 1. first cd into ~/.config then clone the repo  
         `cd ~/.config; git clone https://github.com/Shadorain/shadobar.git`  
-2. move shadobar directory to *~/.config* and rename the whole directory to polybar  
+2. Rename the whole directory to polybar  
         `mv ~/.config/shadobar ~/.config/polybar`  
 3. cd into polybar directory  
         `cd ~/.config/polybar/`  
-4. Copy/move the entire rofi directory into *.config*  
+4. Copy/move the entire rofi directory into *~/.config*  
         `cp ~/.config/polybar/rofi ~/.config/rofi`  
-5. (Optional) finally set *~/.config/polybar/launch.sh &* where you would like shadobar to auto start from.  
-  * I personally like having it in my bspwmrc  
-        `echo "polybar shadobar &" >> ~/.config/bspwm/bspwmrc`  
--- And there you go! You have succesfully installed Shadobar! --  
-( Please give feedback if certain things do not work )
+5. (Optional) finally set *~/.config/polybar/launch.sh &* where you would like shadobar to auto start from.
+        `echo "polybar shadobar &" >> ~/.config/bspwm/bspwmrc` (in my case: bspwmrc)  
+
+### I3 users
+* Follow each of those steps above, the only change you will need is to swap the i3 config with the bspwm one.
+        `mv ~/.config/polybar/config-i3 ~/.config/polybar/config`
+
+#### ---And there you go! You have succesfully installed Shadobar!----
+  ( Please give feedback if certain things do not work )
 
 ## Dependencies
-* Polybar of course! 
+* Polybar of course!  
     `sudo pacman -S polybar`
-* (Optional for functionality) Rofi 
+* (Optional for functionality) Rofi  
     `sudo pacman -S rofi`
 
 #### Fonts
@@ -47,11 +51,12 @@ All rofi files that are integrated into the bar are in the rofi/ directory, that
 
 ## Some Screenshots!
 #### Full-bar
-Desc: Shot of the full bar,
+Desc: Shot of the full bar
 * Tray open
 * Battery Discharging
-* Floating window
-![Full-bar Shot](scrots/screeny5.png)
+* Floating window  
+![Full-bar Shot](scrots/screeny5.png)  
+<hr>
 
 #### Workspaces
 Desc: Shot of workspace section
@@ -59,18 +64,21 @@ Desc: Shot of workspace section
 * Different color with overline: focused workspace
 * Arch Logo: My run launcher
 * The grid: indicates that current workspace is in tiled mode
-  * *Click to put in monocle*
-![Workspace + Run launcher shot](scrots/screeny7.png)
+  * *Click to put in monocle*  
+![Workspace + Run launcher shot](scrots/screeny7.png)  
+<hr>
 
 #### Dimmed Workspaces
 Desc: Shot of workspaces when focusing separate monitor
-* Workspace foreground dims out when not in the monitor where shadobar is
-![Dimmed workspaces](scrots/screeny6.png)
+* Workspace foreground dims out when not in the monitor where shadobar is.  
+![Dimmed workspaces](scrots/screeny6.png)  
+<hr>
 
 #### Floating indicator
 Desc: Shot of workspaces that are all full and in the current desktop there is a floating window
-* *Click the floating icon to put the window back into tiling mode*
-![Floating indicator](scrots/screeny4.png)
+* *Click the floating icon to put the window back into tiling mode*  
+![Floating indicator](scrots/screeny4.png)  
+<hr>
 
 #### Mid Section
 Desc: This is where the music goes (in my case: MPD)
@@ -79,8 +87,9 @@ Desc: This is where the music goes (in my case: MPD)
 * Album | Artist - Song name 
   * *click to open mpd menu (rofi)*
 * Time
-  * *click to go to workspace where you manage music*
-![Mid Section](scrots/screeny2.png)
+  * *click to go to workspace where you manage music*  
+![Mid Section](scrots/screeny2.png)  
+<hr>
 
 #### Right Section #1
 Desc: Shot of right section of the bar
@@ -89,22 +98,26 @@ In this shot:
   * *click to display more icons*
 * Volume low (not muted)
 * Time is shown
-* Battery icon is hidden when it is full and charging
-![Right Section #1](scrots/screeny1.png)
+* Battery icon is hidden when it is full and charging  
+![Right Section #1](scrots/screeny1.png)  
+<hr>
 
 #### Right Section #2
 Desc: Shot of right section of bar
 In this shot:
 * Tray is opened displaying various more options (network, music, most used apps, quicklinks, github repos, close tray)
 * Volume is muted (left click)
-* Battery is not hidden anymore and is discharging (Overline and icon will change colors as battery level decreases)
-![Right Section #2](scrots/screeny3.png)
+* Battery is not hidden anymore and is discharging (Overline and icon will change colors as battery level decreases)  
+![Right Section #2](scrots/screeny3.png)  
+<hr>
 
 
 ## Contact
-* Discord: shadorain#4182
+* Discord: Shadorain#4182
+* Email: shadorainwraith@gmail.com
 
 ## Feedback
-* Text me any time if you would like help or info!
-* Hope you enjoy my shadobar configuration of polybar
+* Message any time if you would like help or info or would like to help!
+  * *Every critique helps me make this better*
+* Hope you enjoy my shadobar configuration of polybar!
 * Drop a star to let me know you like it!
