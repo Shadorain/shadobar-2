@@ -2,9 +2,8 @@
 if [ -z "$(bspc query -N -n .focused.fullscreen -d focused)" ]; then
 	bspc node focused.tiled -t fullscreen
 	polybar-msg cmd hide
-    #/home/shadow/.config/scripts/bsphide
 else
 	bspc node focused.fullscreen -t tiled
-	/home/shadow/.config/scripts/bspunhide
+	~/.config/scripts/bspunhide
     polybar-msg cmd show
 fi

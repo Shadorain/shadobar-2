@@ -5,7 +5,7 @@
 ## browser : @Shadorain
 ## music : @Shadorain
 
-rofi_command="rofi -theme /home/shadow/.config/rofi/themes/apps.rasi"
+rofi_command="rofi -theme ~/.config/rofi/themes/apps.rasi"
 
 # Links
 #terminal=""
@@ -34,17 +34,17 @@ case $chosen in
         kitty &
         ;;
     $files)
-        kitty /home/shadow/.config/vifm/scripts/vifmrun
+        kitty ~/.config/vifm/scripts/vifmrun
         ;;
     $editor)
-        kitty nvim /home/shadow/vimwiki/Life/TODO.md
+        kitty nvim ~/vimwiki/Life/TODO.md
         #kitty nvim &
         ;;
     $browser)
         firefox &
         ;;
     $music)
-        kitty nvim /home/shadow/vimwiki/diary/diary.md
+        kitty nvim ~/vimwiki/diary/diary.md
          #bspc desktop -f V
         ;;
     $settings)

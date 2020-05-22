@@ -19,7 +19,7 @@ options="$MONTH\n$DAY\n$YEAR"
 chosen="$(echo -e "$options" | $rofi_command -p "  $TIME" -dmenu -selected-row 1)"
 case $chosen in
     $DAY)
-        kitty nvim "/home/shadow/vimwiki/diary/$YEAR-$MONTH-$DAY.md"
+        kitty nvim "~/vimwiki/diary/$YEAR-$MONTH-$DAY.md"
         ;;
     $MONTH)
         bspc desktop -f X && kitty calcurse
