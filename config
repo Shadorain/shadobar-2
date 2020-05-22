@@ -46,7 +46,7 @@ font-5=IPAGothic:size=12:antialias=true;3
 font-6="M+ 1m:style=Medium:size=16;3"
 
 modules-left = launcher bspwm 
-modules-center = mpd previous next spotify
+modules-center = mpd
 modules-right = time sep overflow sep pulseaudio sep battery power
 # }}}
 ; --------------------------------------------------------- 
@@ -395,7 +395,7 @@ hook-1 = python3 ~/.config/scripts/spotify_status.py
 initial = 2
 tail = true
 interval = 10
-click-left = bspc desktop -f II
+click-left = bspc desktop -f V
 #  }}}
 # }}}
 ; ---------------------------------------------------------
