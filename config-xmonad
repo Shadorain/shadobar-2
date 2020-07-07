@@ -49,7 +49,32 @@ modules-left = launcher xmonad
 modules-center = mpd
 modules-right = time sep overflow sep pulseaudio sep battery power
 # }}}
-; --------------------------------------------------------- 
+# Shadobar2 {{{
+[bar/shadobar2]
+enable-ipc=true
+height = 30
+width = 100%
+monitor=HDMI-0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+top = true
+
+line-size = 2
+
+font-0=Iosevka:size=11;3
+font-1=Font Awesome 5 Free Solid:size=11;3
+font-2=Font Awesome 5 Free Regular:size=10;3
+font-3=Font Awesome 5 Brands:size=11;3
+font-4=font\-logos:size=14;3
+font-5=IPAGothic:size=12:antialias=true;3
+font-6="M+ 1m:style=Medium:size=16;3"
+
+modules-left = launcher xmonad 
+modules-center = mpd
+modules-right = time sep overflow sep pulseaudio sep battery power
+#}}}
+# ; --------------------------------------------------------- 
 # Layout {{{
 [layout]
 icon-font = 6
