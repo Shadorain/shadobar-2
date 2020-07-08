@@ -91,7 +91,7 @@ wm-restack = bspwm
 # Launcher {{{
 [module/launcher]
 type=custom/text
-content =  
+content = \uE777
 content-font=5
 content-foreground=${colors.foreground}
 content-padding=2
