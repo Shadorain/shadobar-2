@@ -1,4 +1,5 @@
-# shadobar
+# shadobar 2.0
+PART TWO IS HERE BABY, the new and improved shadobar! with more colors and far more sexiness!!
 My complete and beautiful polybar. Took a while but well worth the beauty and the functionality!  
 All rofi files that are integrated into the bar are in the rofi/ directory, that goes for scripts as well. 
 
