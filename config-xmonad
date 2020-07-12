@@ -66,10 +66,10 @@ wm-restack = xmonad
 ; Launcher {{{
 [module/launcher]
 type=custom/text
-content =  
-content-font=5
+content = "  "
+content-font=1
 content-foreground=#ff79c6
-content-padding=2
+content-padding=1
 click-left="dmenu_run -fn 'Agave:size=12' -nb '#1B1B29' -nf '#8897F4' -sb '#2F2F4A' -sf '#ff79c6'"
 ; }}}
 ; XWindow {{{
