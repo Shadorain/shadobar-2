@@ -1,11 +1,13 @@
-; ==========================================================
+; =======================================================================================
+;    _________.__                .___    ___.                  ________     _______   
+;   /   _____/|  |__ _____     __| _/____\_ |__ _____ _______  \_____  \    \   _  \  
+;   \_____  \ |  |  \\__  \   / __ |/  _ \| __ \\__  \\_  __ \  /  ____/    /  /_\  \ 
+;   /        \|   Y  \/ __ \_/ /_/ (  <_> ) \_\ \/ __ \|  | \/ /       \    \  \_/   \
+;  /_______  /|___|  (____  /\____ |\____/|___  (____  /__|    \_______ \ /\ \_____  /
+;          \/      \/     \/      \/          \/     \/                \/ \/       \/
 ;
-;   ▒█▀▀▀█ ▒█░▒█ ░█▀▀█ ▒█▀▀▄ ▒█▀▀▀█ ▒█▀▀█ ░█▀▀█ ▒█▀▀█ 
-;   ░▀▀▀▄▄ ▒█▀▀█ ▒█▄▄█ ▒█░▒█ ▒█░░▒█ ▒█▀▀▄ ▒█▄▄█ ▒█▄▄▀ 
-;   ▒█▄▄▄█ ▒█░▒█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█ ▒█░▒█
-;
-;==========================================================
-# Colors {{{
+;=============================================================================================
+; Colors {{{
 [colors]
 background = #aa09090d
 foreground = #8897F4
@@ -20,15 +22,11 @@ warning = #ba5f76
 urgent = #ad3939
 critical = #b3143e
 vol_mute = #6b6b6b
-# }}}                   
-;   ___ _  _   _   ___   ___  ___   _   ___ 
-;  / __| || | /_\ |   \ / _ \| _ ) /_\ | _ \
-;  \__ \ __ |/ _ \| |) | (_) | _ \/ _ \|   /
-;  |___/_||_/_/ \_\___/ \___/|___/_/ \_\_|_\
-# Shadobar {{{
+; }}}                   
+; Shadobar {{{
 [bar/shadobar]
 enable-ipc=true
-height = 30
+height = 25
 width = 100%
 
 background = ${colors.background}
@@ -38,7 +36,7 @@ top = true
 line-size = 2
 
 font-0=Iosevka:size=11;3
-font-1=Font Awesome 5 Free Solid:size=11;3
+font-1=Font Awesome 5 Free Solid:size=11;3"
 font-2=Font Awesome 5 Free Regular:size=10;3
 font-3=Font Awesome 5 Brands:size=11;3
 font-4=font\-logos:size=14;3
@@ -47,128 +45,103 @@ font-6="M+ 1m:style=Medium:size=16;3"
 
 modules-left = launcher xmonad 
 modules-center = mpd
-modules-right = time sep overflow sep pulseaudio sep battery power
-# }}}
-# Shadobar2 {{{
-[bar/shadobar2]
-enable-ipc=true
-height = 30
-width = 100%
-monitor=HDMI-0
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-top = true
-
-line-size = 2
-
-font-0=Iosevka:size=11;3
-font-1=Font Awesome 5 Free Solid:size=11;3
-font-2=Font Awesome 5 Free Regular:size=10;3
-font-3=Font Awesome 5 Brands:size=11;3
-font-4=font\-logos:size=14;3
-font-5=IPAGothic:size=12:antialias=true;3
-font-6="M+ 1m:style=Medium:size=16;3"
-
-modules-left = launcher xmonad 
-modules-center = mpd
-modules-right = time sep overflow sep pulseaudio sep battery power
-#}}}
-# ; --------------------------------------------------------- 
-# Layout {{{
+modules-right = time overflow pulseaudio cpu memory battery power
+; }}}
+; --------------------------------------------------------------------------------------------
+; Layout {{{
 [layout]
 icon-font = 6
 icon-padding = 1 
 
-bar-format = %{T14}%fill%%indicator%%{F#dc404040}%empty%%{F-}%{T10}
-bar-fill-icon = ▰ 
-wm-restack = bspwm
-# }}}
-;   __  __  ___  ___  _   _ _    ___ ___ 
-;  |  \/  |/ _ \|   \| | | | |  | __/ __|
-;  | |\/| | (_) | |) | |_| | |__| _|\__ \
-;  |_|  |_|\___/|___/ \___/|____|___|___/
-# Launcher {{{
+bar-format = %{T3}%fill%%indicator%%{F#322240}%empty%%{F-} 
+;bar-format = %{T3}%fill%%indicator%%{F#dc404040}%empty%%{F-} 
+;bar-fill-icon = ▰ 
+bar-fill-icon = 
+;bar-fill-icon = 
+wm-restack = xmonad
+; }}}
+; --------------------------------------------------------------------------------------------
+; Modules:
+; --------------------------------------------------------------------------------------------
+; Launcher {{{
 [module/launcher]
 type=custom/text
-content = \uE777
+content =  
 content-font=5
-content-foreground=${colors.foreground}
+content-foreground=#ff79c6
 content-padding=2
-click-left=~/.config/scripts/launcher
-# }}}
-# XWindow {{{
+click-left="dmenu_run -fn 'Agave:size=12' -nb '#1B1B29' -nf '#8897F4' -sb '#2F2F4A' -sf '#ff79c6'"
+; }}}
+; XWindow {{{
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:40:...%
 label-color1 = ${colors.foreground} 
 label-background = ${colors.background} 
-# }}}
-# Xmonad {{{
+; }}}
+; Xmonad {{{
 [module/xmonad]
 type = custom/script
 exec = xmonad-log
+monitor-strict = false
+override-redirect = false
 
+enable-ipc=true
 tail = true
-# }}}
-# Power {{{
+; }}}
+; Power {{{
 [module/power]
 type = custom/text
 content =   
-content-foreground = ${colors.foreground}
+content-foreground = #ff79c6
 click-left = ~/.config/rofi/scripts/menu_powermenu.sh
 content-padding = 3
-# }}}
-# Sep {{{
+; }}}
+; Sep {{{
 [module/sep]
 type = custom/text
 content = " "
 content-foreground = ${colors.foreground}
-# }}}
-# Overflow {{{
+; }}}
+; Overflow {{{
 [module/overflow]
 type = custom/menu
 expand-right = false
-format-spacing = 1
-format-foreground = ${colors.foreground}
-#format-padding = 2
+format-spacing = 0
+format-foreground = #87b0d6
+;format-foreground = #7060e6
+format-padding = 1
 
 label-open = "  "
-label-close = " "
+label-close = "  "
 label-separator = " "
-menu-0-0 = "  "
+menu-0-0 = "  "
 menu-0-0-exec = ~/.config/rofi/scripts/network.sh
-menu-0-1 = ""
-menu-0-1-exec = ~/.config/rofi/scripts/mpd.sh
-menu-0-2 = ""
-menu-0-2-exec = ~/.config/rofi/scripts/apps.sh
-menu-0-3 = ""
-menu-0-3-exec = ~/.config/rofi/scripts/quicklinks.sh
-menu-0-4 = ""
-menu-0-4-exec = ~/.config/rofi/scripts/gitrepos.sh
-# }}}
-# MPD {{{
+menu-0-1 = " "
+menu-0-1-exec = "firefox https://github.com/Shadorain"
+; }}}
+; MPD {{{
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
 port = 6600
-format-online = <icon-prev> <toggle> <icon-next> %{A1:~/.config/rofi/scripts/mpd.sh:}<label-song>%{A}%{A1:bspc desktop -f V:}<label-time>%{A}
+format-online-font = 1
+format-online = <icon-prev> <toggle> <icon-next> %{A1:~/.config/rofi/scripts/mpd.sh:}<label-song>%{A}<label-time>
 format-online-padding = 2 1
-format-online-foreground = ${colors.foreground}
+format-online-foreground = #d9bff2
 format-online-background = ${colors.background}
-label-song-foreground = ${colors.foreground}
+label-song-foreground = #d9bff2
 label-song-background = ${colors.background}
 label-song-padding = 2
-label-time-foreground = ${colors.foreground}
+label-time-foreground = #d9bff2
 label-time-background = ${colors.background}
 label-time-padding = 1
 format-online-overline = ${colors.uo_linecolor}
 
 format-offline = <label-offline>
 label-offline =
-; offline
 format-offline-padding = 2
-format-offline-foreground = ${colors.foreground}
+format-offline-foreground = #d9bff2
 format-offline-background = ${colors.background}
 
 bar-progress-width = 35
@@ -184,15 +157,16 @@ icon-next = 
 
 label-song-maxlen = 75
 label-song-ellipsis = true
-# }}}
-# CPU {{{
+; }}}
+; CPU {{{
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "%{F#8897f4}|%{F-}%{F#7757d9}  %{F-}"
 format-padding = 1 
-format = <bar-load>
-format-foreground = ${colors.foreground}
+format = <label> 
+;<bar-load>
+format-foreground = #7757d9
 label = %percentage%%
 
 bar-load-font = ${layout.icon-font} 
@@ -201,18 +175,20 @@ bar-load-fill = ${layout.bar-fill-icon}
 bar-load-indicator =
 bar-load-empty = ${layout.bar-fill-icon}
 bar-load-format = ${layout.bar-format}
-bar-load-foreground-0 = ${colors.foreground}
+bar-load-foreground-0 = #7757d9
 bar-load-foreground-5 = ${colors.urgent}
 bar-load-foreground-9 = ${colors.critical}
-# }}}
-# Memory {{{
+; }}}
+; Memory {{{
 [module/memory]
 type = internal/memory
 interval = 2
 format-padding = 1 
-format = <bar-used>
-format-prefix = "|  "
-format-foreground = ${colors.foreground}
+format = <label>
+;<bar-used>
+format-prefix = " "
+;format-foreground = #b4a1f0
+format-foreground = #943d84
 label = %percentage_used%%
 
 bar-used-font = ${layout.icon-font} 
@@ -221,11 +197,11 @@ bar-used-fill = ${layout.bar-fill-icon}
 bar-used-indicator =
 bar-used-empty = ${layout.bar-fill-icon}
 bar-used-format = ${layout.bar-format}
-bar-used-foreground-0 = ${colors.foreground}
+bar-used-foreground-0 = #943d84
 bar-used-foreground-4 = ${colors.urgent}
 bar-used-foreground-8 = ${colors.critical}
-# }}}
-# Net {{{
+; }}}
+; Net {{{
 [module/net]
 type = custom/script
 exec = ~/.config/scripts/net_pbar
@@ -234,140 +210,146 @@ interval = 3
 tail = true
 click-left = ~/.config/rofi/scripts/network.sh
 label-padding = 2
-# }}}
-# Time {{{
+; }}}
+; Time {{{
 [module/time]
 type = internal/date
 interval = 1.0
 time = %H:%M
 date = %d %b
 
-label =  %{A1:~/.config/rofi/scripts/time.sh:}%time%%{A}
-label-foreground = ${colors.foreground}
+label =  %{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)":}%{A2:setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse:}%{A3:setsid -f "$TERMINAL" ~/vimwiki/diary/$YEAR-$MONTH-$DAY.md:}%time%%{A}%{A}%{A}
+;label-foreground = #1ea69d
+label-foreground = #6f88e8
 label-background = ${colors.background}
 label-overline = ${colors.uo_linecolor}
-label-underline = ${colors.uo_linecolor}
+;label-underline = ${colors.uo_linecolor}
 label-padding = 2
-# }}}
-# Pulseaudio {{{
+; }}}
+; Pulseaudio {{{
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = %{A3:~/.config/rofi/scripts/volume.sh:}%{A2:kitty pulsemixer:}<ramp-volume>%{A}%{A}
+format-volume = %{A3:~/.config/rofi/scripts/volume.sh:}%{A2:kitty pulsemixer:}<ramp-volume> <bar-volume>%{A}%{A}
 use-ui-max = false
 interval = 5
-label-muted-overline = ${colors.vol_mute}
 
 ramp-volume-font = ${layout.icon-font}
-ramp-volume-foreground = ${colors.foreground}
+ramp-volume-foreground = #e1acff
 ramp-volume-0 = ""
 ramp-volume-1 = ""
 ramp-volume-2 = ""
 
 bar-volume-font = ${layout.icon-font} 
-bar-volume-width = 6 
+bar-volume-width = 10 
 bar-volume-fill = ${layout.bar-fill-icon}
 bar-volume-indicator =
 bar-volume-empty = ${layout.bar-fill-icon}
 bar-volume-format = ${layout.bar-format}
-bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-0 = #e1acff
 
-label-muted = ""
+label-muted =%{o#6b6b6b}%{+o}    %{-o}
+label-muted-overline = ${colors.vol_mute}
 label-muted-foreground = ${colors.vol_mute}
-label-muted-padding = 2
+label-muted-padding = 0
 
 format-muted-prefix-font = ${layout.icon-font}
-format-volume-foreground = ${colors.foreground}
-format-volume-padding = 2
-# }}}
-# Battery {{{
+format-volume-foreground = #e1acff
+format-volume-padding = 1
+; }}}
+; Battery {{{
 [module/battery]
 type = internal/battery
 full-at = 100
 time-format = %H:%M
 battery = BAT0
 adapter = AC
-format-charging = %{A1:~/.config/rofi/scripts/battery.sh:}<animation-charging>%{A}
-format-discharging = %{A1:~/.config/rofi/scripts/battery.sh:}<ramp-capacity>%{A}
-format-full = <label-full>
+format-charging = %{A1:~/.config/rofi/scripts/battery.sh:} <animation-charging> <label-charging>%{A} %{F#8897f4}|%{F-}
+;format-discharging = %{o#9786d1}%{+o}%{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging> %{A}%{-o} %{F#8897f4}|%{F-}
+format-discharging = %{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging>%{A} %{F#8897f4}|%{F-}
+format-full = <label-full> %{F#8897f4}|%{F-}
 
-format-charging-padding = 2
-format-discharging-padding = 2
+label-discharging-foreground = #9786d1
+label-charging-foreground = #9786d1
+format-charging-foreground = #9786d1
+format-charging-padding = 0
+format-discharging-padding = 0
 format-full-padding = 0
-format-discharging-overline = ${colors.uo_linecolor}
+;format-discharging-overline = ${colors.uo_linecolor}
 
 ramp-capacity-font=${layout.icon-font}
-#label-full = "  "
+;label-full = ""
 label-full =
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 =  " "
-ramp-capacity-3 = "  "
-ramp-capacity-4 = "  "
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
 
-ramp-capacity-0-foreground = ${colors.critical}
+ramp-capacity-foreground = #f0416d
+ramp-capacity-0-foreground = #f0416d
 ramp-capacity-1-foreground = ${colors.urgent}
-ramp-capacity-0-overline = ${colors.critical}
-ramp-capacity-1-overline = ${colors.urgent}
-ramp-capacity-2-overline = ${colors.warning}
+;ramp-capacity-0-overline = ${colors.critical}
+;ramp-capacity-1-overline = ${colors.urgent}
+;ramp-capacity-2-overline = ${colors.warning}
 
+animation-charging-foreground = #9786d1
 animation-charging-0 = ""
 animation-charging-1 = ""
 animation-charging-2 = ""
 animation-charging-3 = ""
 animation-charging-4 = ""
 animation-charging-framerate = 500  ;750
-# }}}
-# Settings + Global WM {{{
+; }}}
+; Settings + Global WM {{{
 [settings]
 screenchange-reload = true
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0 
-#vim:ft=dosini
-# }}}
-; ---------------------------------------------------------
-# Unused Modules {{{
-# SPOTIFY MODULES {{{
-[module/previous]
-type = custom/script
-format-font = 2
-format-padding = 2
-format-foreground = ${colors.foreground}
-exec = echo ""
-exec-if = "pgrep spotify"
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-
-[module/next]
-type = custom/script
-format-font = 2
-format-padding = 2
-format-foreground = ${colors.foreground}
-exec = echo ""
-exec-if = "pgrep spotify"
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-
-[module/playpause]
-type = custom/ipc
-format-font = 2
-format-padding = 0
-format-foreground = ${colors.foreground}
-hook-0 = echo ""
-hook-1 = echo ""
-hook-2 = echo ""
-initial = 2
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-
-[module/spotify]
-type = custom/ipc
-format-foreground = ${colors.foreground}
-hook-0 = echo ""
-hook-1 = python3 ~/.config/scripts/spotify_status.py
-initial = 2
-tail = true
-interval = 10
-click-left = bspc desktop -f V
-#  }}}
-# }}}
-; ---------------------------------------------------------
+; }}}
+; --------------------------------------------------------------------------------------------
+; Unused Modules {{{
+; SPOTIFY MODULES {{{
+;[module/previous]
+;type = custom/script
+;format-font = 2
+;format-padding = 2
+;format-foreground = ${colors.foreground}
+;exec = echo ""
+;exec-if = "pgrep spotify"
+;click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+;
+;[module/next]
+;type = custom/script
+;format-font = 2
+;format-padding = 2
+;format-foreground = ${colors.foreground}
+;exec = echo ""
+;exec-if = "pgrep spotify"
+;click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+;
+;[module/playpause]
+;type = custom/ipc
+;format-font = 2
+;format-padding = 0
+;format-foreground = ${colors.foreground}
+;hook-0 = echo ""
+;hook-1 = echo ""
+;hook-2 = echo ""
+;initial = 2
+;click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+;
+;[module/spotify]
+;type = custom/ipc
+;format-foreground = ${colors.foreground}
+;hook-0 = echo ""
+;hook-1 = python3 ~/.config/scripts/spotify_status.py
+;initial = 2
+;tail = true
+;interval = 10
+;click-left = bspc desktop -f V
+;  }}}
+; }}}
+; --------------------------------------------------------------------------------------------

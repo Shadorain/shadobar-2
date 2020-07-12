@@ -15,25 +15,22 @@ All rofi files that are integrated into the bar are in the rofi/ directory, that
 
 ##### TODO's
 * [X] ~~I3wm Support/Fork (anyone willing to help, much appreciated)~~
-* [X] ~~Easier color change features for nicer theming~~
 * [X] ~~Make hotswapping available~~
 
 
 ## Installation
 1. first cd into ~/.config then clone the repo  
         `cd ~/.config; git clone https://github.com/Shadorain/shadobar.git`  
-2. Rename the whole directory to polybar  
-        `mv ~/.config/shadobar ~/.config/polybar`  
-3. cd into polybar directory  
-        `cd ~/.config/polybar/`  
-4. Copy/move the entire rofi directory into *~/.config*  
-        `cp ~/.config/polybar/rofi ~/.config/rofi`  
-5. (Optional) finally set *~/.config/polybar/launch.sh &* where you would like shadobar to auto start from.
-        `echo "polybar shadobar &" >> ~/.config/bspwm/bspwmrc` (in my case: bspwmrc)  
+2. cd into shadobar directory  
+        `cd ~/.config/shadobar/`  
+3. Copy/move the entire rofi directory into *~/.config*  
+        `cp ~/.config/shadobar/rofi ~/.config/rofi`  
+4. (Optional) finally set *~/.config/polybar/launch.sh &* where you would like shadobar to auto start from.
+        `echo "polybar shadobar -c ~/.config/shadobar/config &" >> ~/.config/bspwm/bspwmrc` (in my case: bspwmrc)  
 
 ### I3 users
 * Follow each of those steps above, the only change you will need is to swap the i3 config with the bspwm one.
-        `mv ~/.config/polybar/config-i3 ~/.config/polybar/config`
+        `mv ~/.config/shadobar/config-i3 ~/.config/shadobar/config`
 
 #### ---And there you go! You have succesfully installed Shadobar!----
   ( Please give feedback if certain things do not work )
@@ -41,12 +38,12 @@ All rofi files that are integrated into the bar are in the rofi/ directory, that
 ## Dependencies
 * Polybar of course!  
     `sudo pacman -S polybar`
-* (Optional for functionality) Rofi  
-    `sudo pacman -S rofi`
+* (Optional for functionality) Rofi and Dmenu  
+    `sudo pacman -S rofi dmenu`
 
 #### Fonts
-* `sudo pacman -S ttf-font-awesome ttf-hack otf-ipafont`
-* `yay -S ttf-iosevka ttf-font-logos ttf-mplus otf-mplus`
+* `sudo pacman -S otf-ipafont`
+* `yay -S ttf-iosevka ttf-font-logos ttf-mplus otf-mplus otf-font-awesome-5-free`
 
 
 ## Some Screenshots!

@@ -70,7 +70,7 @@ content = 
 content-font=5
 content-foreground=${colors.foreground}
 content-padding=2
-click-left=~/.config/polybar/scripts/launcher
+click-left=~/.config/shadobar/scripts/launcher
 # }}}
 # XWindow {{{
 [module/xwindow]
@@ -126,7 +126,7 @@ label-tiled = "%{A1:bspc desktop -l next:}  %{A}"
 label-tiled-foreground = ${colors.tile_grid}
 label-floating = "%{A1:bspc node focused.tiled -t floating || bspc node focused.floating -t tiled:}  %{A}"
 label-floating-foreground = ${colors.foreground}
-label-fullscreen = "%{A1:~/.config/polybar/scripts/bspfullscreen:}  %{A}"
+label-fullscreen = "%{A1:~/.config/shadobar/scripts/bspfullscreen:}  %{A}"
 label-fullscreen-foreground = ${colors.mint_accent}
 label-locked = "%{A1:bspc desktop -l next:}  %{A}"
 label-locked-foreground = ${colors.mint_accent}
@@ -259,7 +259,7 @@ bar-used-foreground-8 = ${colors.critical}
 # Net {{{
 [module/net]
 type = custom/script
-exec = ~/.config/polybar/scripts/net_pbar
+exec = ~/.config/shadobar/scripts/net_pbar
 label = %output%
 interval = 3
 tail = true
@@ -394,7 +394,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 type = custom/ipc
 format-foreground = ${colors.foreground}
 hook-0 = echo ""
-hook-1 = python3 ~/.config/polybar/scripts/spotify_status.py
+hook-1 = python3 ~/.config/shadobar/scripts/spotify_status.py
 initial = 2
 tail = true
 interval = 10
