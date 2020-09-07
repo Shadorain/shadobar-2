@@ -36,7 +36,7 @@ top = true
 line-size = 2
 
 font-0=Iosevka:size=11;3
-font-1=Font Awesome 5 Free Solid:size=11;3"
+font-1=Font Awesome 5 Free Solid:size=11;3
 font-2=Font Awesome 5 Free Regular:size=10;3
 font-3=Font Awesome 5 Brands:size=11;3
 font-4=font\-logos:size=14;3
@@ -45,7 +45,7 @@ font-6="M+ 1m:style=Medium:size=16;3"
 
 modules-left = launcher xmonad 
 modules-center = mpd
-modules-right = time overflow pulseaudio cpu memory battery power
+modules-right = time overflow pulseaudio moon cpu memory battery power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -89,7 +89,7 @@ override-redirect = false
 enable-ipc=true
 tail = true
 ; }}}
-; Power {{{
+;Power {{{
 [module/power]
 type = custom/text
 content =   
@@ -119,6 +119,18 @@ menu-0-0 = "  "
 menu-0-0-exec = ~/.config/rofi/scripts/network.sh
 menu-0-1 = " "
 menu-0-1-exec = "firefox https://github.com/Shadorain"
+; }}}
+; Moon {{{
+[module/moon]
+type=custom/script
+exec=~/.config/shadobar/scripts/moon
+format = <label>
+format-padding = 2
+;label = %{A1:~/.config/shadobar/scripts/moonclick:}%output%%{A1}
+label = %output%
+label-foreground=#521cd9
+click-left=~/.config/shadobar/scripts/moonclick
+tail=true
 ; }}}
 ; MPD {{{
 [module/mpd]
@@ -218,7 +230,7 @@ interval = 1.0
 time = %H:%M
 date = %d %b
 
-label =  %{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)":}%{A2:setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse:}%{A3:setsid -f "$TERMINAL" ~/vimwiki/diary/$YEAR-$MONTH-$DAY.md:}%time%%{A}%{A}%{A}
+label=%{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)":}%{A2:setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse:}%{A3:setsid -f "$TERMINAL" ~/vimwiki/diary/$YEAR-$MONTH-$DAY.md:}%time%%{A}%{A}%{A}
 ;label-foreground = #1ea69d
 label-foreground = #6f88e8
 label-background = ${colors.background}
@@ -353,3 +365,4 @@ margin-bottom = 0
 ;  }}}
 ; }}}
 ; --------------------------------------------------------------------------------------------
+; vim:ft=dosini

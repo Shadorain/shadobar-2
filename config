@@ -66,11 +66,11 @@ wm-restack = xmonad
 ; Launcher {{{
 [module/launcher]
 type=custom/text
-content = " "
-content-font=1
+content = " "
+content-font=7
 content-foreground=#ff79c6
 content-padding=1
-click-left="dmenu_run"
+click-left="~/.config/scripts/run-recent"
 ; }}}
 ; XWindow {{{
 [module/xwindow]
@@ -109,7 +109,7 @@ label-focused-foreground = #ff79c6
                           
 label-occupied = %icon%   
 label-occupied-padding = 2
-label-occupied-background = #9188ff
+label-occupied-foreground = #9188ff
 
 label-urgent = %icon%
 label-urgent-foreground = #f0416d

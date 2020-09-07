@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# # Shows the current moon phase.
+moonfile="$HOME/.local/share/moonphase"
+
+[ "$(stat -c %y "$moonfile" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||
+	{ curl -sf "wttr.in/?format=%m" > "$moonfile" || exit 1 ;}
+icon="$(cat "$moonfile")"
+
+case "$icon" in
+	🌑) notify-send --category="Moon Phases" --icon="" '' 'New Moon';;
+	🌒) notify-send --category="Moon Phases" --icon="" '' 'Waxing Crescent' ;;
+	🌓) notify-send --category="Moon Phases" --icon="" '' 'First Quarter' ;;
+	🌔) notify-send --category="Moon Phases" --icon="" '' 'Waxing Gibbous' ;;
+	🌕) notify-send --category="Moon Phases" --icon="" '' 'Full Moon' ;;
+	🌖) notify-send --category="Moon Phases" --icon="" '' 'Waning Gibbous' ;;
+	🌗) notify-send --category="Moon Phases" --icon="" '' 'Last Quarter' ;;
+	🌘) notify-send --category="Moon Phases" --icon="" '' 'Waning Crescent' ;;
+	*) exit 1 ;;
+esac
