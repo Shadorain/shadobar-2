@@ -128,7 +128,8 @@ format = <label>
 format-padding = 2
 ;label = %{A1:~/.config/shadobar/scripts/moonclick:}%output%%{A1}
 label = %output%
-label-foreground=#521cd9
+label-foreground=#aaaaff
+;label-foreground=#521cd9
 click-left=~/.config/shadobar/scripts/moonclick
 tail=true
 ; }}}
