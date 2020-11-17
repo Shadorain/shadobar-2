@@ -1,0 +1,29 @@
+#!/bin/bash
+
+layout_log="$HOME/.xmonad/.xmonad-layout-log"
+
+# Gets unmodified layout
+full=$(cat $layout_log | awk '{print $4" "$5}')
+
+case $full in
+    "Hidden Tall")
+        msg="|%{F#6a5acd}%{A4:xdotool key alt+space:}%{A5:xdotool key alt+space:} T %{A}%{A}%{F-}|"
+        ;;
+    "Hidden Mirror")
+        msg="|%{F#6a5acd}%{A4:xdotool key alt+space:}%{A5:xdotool key alt+space:} Mi T %{A}%{A}%{F-}|"
+        ;;
+    "Hidden Monocle")
+        msg="|%{F#87b0d6}%{A4:xdotool key alt+space:}%{A5:xdotool key alt+space:} M %{A}%{A}%{F-}|"
+        ;;
+    "Hidden M Tab")
+        msg="|%{F#8be9fd}%{A4:xdotool key alt+space:}%{A5:xdotool key alt+space:} MT %{A}%{A}%{F-}|"
+        ;;
+    "Hidden Shadolayout")
+        msg="|%{F#bd93f9}%{A4:xdotool key alt+space:}%{A5:xdotool key alt+space:} Shado %{A}%{A}%{F-}|"
+        ;;
+    *)
+        msg=""
+        ;;
+esac
+
+echo -n $msg

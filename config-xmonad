@@ -22,6 +22,15 @@ warning = #ba5f76
 urgent = #ad3939
 critical = #b3143e
 vol_mute = #6b6b6b
+ws_cur_fg = #ff79c6
+ws_cur_bg = #2f2f4a80
+ws_empty = #1ea69d
+ws_occ = #9188ff
+ws_urgent = #f0416d
+ly_T = #6a5acd
+ly_M = #87b0d6
+ly_S1 = #6c71c4
+ly_S2 = #268bd2
 ; }}}                   
 ; Shadobar {{{
 [bar/shadobar]
@@ -42,10 +51,11 @@ font-3=Font Awesome 5 Brands:size=11;3
 font-4=font\-logos:size=14;3
 font-5=IPAGothic:size=12:antialias=true;3
 font-6="M+ 1m:style=Medium:size=16;3"
+font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 
-modules-left = launcher xmonad 
+modules-left = launcher workspaces layout-xmonad
 modules-center = mpd
-modules-right = time overflow pulseaudio moon cpu memory battery power
+modules-right=polynotifications time overflow pulseaudio moon cpu memory battery power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -80,13 +90,49 @@ label-color1 = ${colors.foreground}
 label-background = ${colors.background} 
 ; }}}
 ; Xmonad {{{
-[module/xmonad]
-type = custom/script
-exec = xmonad-log
-monitor-strict = false
-override-redirect = false
+[module/workspaces]
+type = internal/xworkspaces
 
-enable-ipc=true
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+format = <label-state>
+label-monitor = %name% 
+
+label-active = "  %name%  "
+label-active-foreground = ${colors.ws_cur_fg}
+label-active-background = ${colors.ws_cur_bg}
+label-active-padding =
+
+label-occupied = " %name% "
+label-occupied-foreground = ${colors.ws_occ}
+label-occupied-padding =
+
+label-urgent = " %name% "
+label-urgent-foreground = ${colors.ws_urgent}
+label-urgent-padding =
+
+label-empty = " %name% "
+label-empty-foreground = ${colors.ws_empty}
+label-empty-padding =
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/layout-xmonad]
+type = custom/script
+exec = $HOME/.config/shadobar/layouts
+; exec-if = [ -p $HOME/.config/shadobar/layouts ]
+tail = 0
+; }}}
+; Polynotifications {{{
+[module/polynotifications]
+type = custom/script
+exec =~/.config/shadobar/polynotifications/polynotifications.sh
+format = <label>
+label-padding = 1
 tail = true
 ; }}}
 ;Power {{{
