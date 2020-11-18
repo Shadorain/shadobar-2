@@ -55,7 +55,7 @@ font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 
 modules-left = launcher workspaces layout-xmonad
 modules-center = mpd
-modules-right=polynotifications time overflow pulseaudio moon cpu memory battery power
+modules-right=taskwarrior time overflow pulseaudio moon cpu memory battery power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -123,17 +123,26 @@ format-background = ${colors.background}
 
 [module/layout-xmonad]
 type = custom/script
-exec = $HOME/.config/shadobar/layouts
-; exec-if = [ -p $HOME/.config/shadobar/layouts ]
-tail = 0
-; }}}
-; Polynotifications {{{
-[module/polynotifications]
-type = custom/script
-exec =~/.config/shadobar/polynotifications/polynotifications.sh
-format = <label>
+exec = tail -F "/home/shadow/.xmonad/xmonad-layout"
+; label-background = ${colors.pink}
+; label-foreground = ${colors.background}
+format-padding = 1
+label = %output%
 label-padding = 1
+label-font = 2
 tail = true
+; }}}
+; Taskwarrior {{{
+[module/taskwarrior]
+type = custom/script
+exec = ~/.config/shadobar/task -r 5
+tail = true
+format = "<label> |"
+format-foreground = #7e60d6
+label-padding = 1
+label= "%{A2:st -e taskwarrior-tui:} %output% %{A}"
+click-right = kill -USR2 %pid%
+click-left = kill -USR1 %pid%
 ; }}}
 ;Power {{{
 [module/power]
