@@ -55,7 +55,7 @@ font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 
 modules-left = launcher workspaces layout-xmonad
 modules-center = mpd
-modules-right=taskwarrior time overflow pulseaudio moon cpu memory battery power
+modules-right=taskwarrior time pulseaudio moon cpu memory battery power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -137,10 +137,10 @@ tail = true
 type = custom/script
 exec = ~/.config/shadobar/task -r 5
 tail = true
-format = "<label> |"
-format-foreground = #7e60d6
+format = "<label>| "
 label-padding = 1
-label= "%{A2:st -e taskwarrior-tui:} %output% %{A}"
+label= "%{A2:st -e taskwarrior-tui:}%output%%{A}"
+label-foreground = #7e60d6
 click-right = kill -USR2 %pid%
 click-left = kill -USR1 %pid%
 ; }}}
