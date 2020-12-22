@@ -24,9 +24,9 @@ critical = #b3143e
 vol_mute = #6b6b6b
 ws_cur_fg = #ff79c6
 ws_cur_bg = #2f2f4a80
-ws_empty = #1ea69d
+ws_empty = #00a5c2
 ws_occ = #9188ff
-ws_urgent = #f0416d
+ws_urgent = #458faa
 ly_T = #6a5acd
 ly_M = #87b0d6
 ly_S1 = #6c71c4
@@ -48,14 +48,15 @@ font-0=Iosevka:size=11;3
 font-1=Font Awesome 5 Free Solid:size=11;3
 font-2=Font Awesome 5 Free Regular:size=10;3
 font-3=Font Awesome 5 Brands:size=11;3
-font-4=font\-logos:size=14;3
+font-4=font\-logos:size=13;3
 font-5=IPAGothic:size=12:antialias=true;3
 font-6="M+ 1m:style=Medium:size=16;3"
 font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
+font-8="icomoon:style=Regular:size=17;6"
 
 modules-left = launcher workspaces layout-xmonad
 modules-center = mpd
-modules-right=taskwarrior time pulseaudio moon cpu memory battery power
+modules-right=taskwarrior time pulseaudio moon cpu memory sep power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -76,10 +77,13 @@ wm-restack = xmonad
 ; Launcher {{{
 [module/launcher]
 type=custom/text
-content = "  "
-content-font=1
+; content = "  "
+; content = "  "
+; content = "  "
+content = "  "
+content-font=9
 content-foreground=#ff79c6
-content-padding=1
+content-padding=0
 click-left="dmenu_run"
 ; }}}
 ; XWindow {{{
@@ -120,6 +124,7 @@ label-empty-padding =
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+wm-restack = xmonad
 
 [module/layout-xmonad]
 type = custom/script
@@ -155,7 +160,7 @@ content-padding = 3
 ; Sep {{{
 [module/sep]
 type = custom/text
-content = " "
+content = "|"
 content-foreground = ${colors.foreground}
 ; }}}
 ; Overflow {{{
@@ -192,9 +197,9 @@ tail=true
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
-port = 6600
+port = 6601
 format-online-font = 1
-format-online = %{A4:mpc seek +5:}%{A5:mpc seek -5:}<icon-prev> <toggle> <icon-next> %{A1:~/.config/rofi/scripts/mpd.sh:}<label-song>%{A}<label-time>%{A}%{A}
+format-online = %{A4:mpc --host=localhost --port=6601 seek +5:}%{A5:mpc --host=localhost --port=6601 seek -5:}<icon-prev> <toggle> <icon-next> %{A1:~/.config/rofi/scripts/mpd.sh:}<label-song>%{A}<label-time>%{A}%{A}
 format-online-padding = 2 1
 format-online-foreground = #d9bff2
 format-online-background = ${colors.background}
