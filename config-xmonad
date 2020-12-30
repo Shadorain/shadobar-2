@@ -56,7 +56,7 @@ font-8="icomoon:style=Regular:size=17;6"
 
 modules-left = launcher workspaces layout-xmonad
 modules-center = mpd
-modules-right=taskwarrior time pulseaudio moon cpu memory sep power
+modules-right=taskwarrior time pulseaudio cpu memory battery sep power
 ; }}}
 ; --------------------------------------------------------------------------------------------
 ; Layout {{{
@@ -337,10 +337,10 @@ full-at = 100
 time-format = %H:%M
 battery = BAT0
 adapter = AC
-format-charging = %{A1:~/.config/rofi/scripts/battery.sh:} <animation-charging> <label-charging>%{A} %{F#8897f4}|%{F-}
-;format-discharging = %{o#9786d1}%{+o}%{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging> %{A}%{-o} %{F#8897f4}|%{F-}
-format-discharging = %{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging>%{A} %{F#8897f4}|%{F-}
-format-full = <label-full> %{F#8897f4}|%{F-}
+format-charging = %{A1:~/.config/rofi/scripts/battery.sh:} <animation-charging> <label-charging>%{A} %{F#8897f4}%{F-}
+;format-discharging = %{o#9786d1}%{+o}%{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging> %{A}%{-o} %{F#8897f4}%{F-}
+format-discharging = %{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging>%{A} %{F#8897f4}%{F-}
+format-full = <label-full> %{F#8897f4}%{F-}
 
 label-discharging-foreground = #9786d1
 label-charging-foreground = #9786d1
