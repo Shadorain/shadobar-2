@@ -77,10 +77,10 @@ wm-restack = xmonad
 ; Launcher {{{
 [module/launcher]
 type=custom/text
-; content = "  "
+content = "  "
 ; content = "  "
 ; content = "  "
-content = "  "
+; content = "  "
 content-font=9
 content-foreground=#ff79c6
 content-padding=0
