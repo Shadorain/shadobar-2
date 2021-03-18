@@ -55,7 +55,7 @@ font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 font-8="icomoon:style=Regular:size=17;6"
 
 modules-left = launcher workspaces layout-xmonad
-modules-center = mpd
+modules-center = cava mpd
 modules-right=taskwarrior time pulseaudio cpu memory battery sep power
 ; }}}
 ; --------------------------------------------------------------------------------------------
@@ -230,6 +230,14 @@ icon-next = 
 
 label-song-maxlen = 75
 label-song-ellipsis = true
+; }}}
+; Cava {{{
+[module/cava]
+type = custom/script
+tail = true
+format-foreground = #943d84
+click-left = st -e cava
+exec=python ~/.config/shadobar/scripts/cava.py
 ; }}}
 ; CPU {{{
 [module/cpu]
