@@ -1,14 +1,8 @@
 #!/bin/sh
 
 # Terminate already running bar instances
-#killall polybar
+killall polybar
 
-# Wait until procs have been shut down
-#if pgrep polybar; then
-#    sleep 1;  
-# Launch polybar, using default config loc ~/.config/polybar/config
-polybar shadobar &
-#polybar bottom &
-#polybar desktops &
+polybar shadobar -c ~/.config/shadobar/config-xmonad &
 echo "Polybar Launched..."
 
