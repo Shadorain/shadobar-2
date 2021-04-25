@@ -55,7 +55,8 @@ font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 font-8="icomoon:style=Regular:size=17;6"
 
 modules-left = launcher workspaces layout-xmonad
-modules-center = cava mpd
+; modules-center = cava mpd
+modules-center = mpd
 modules-right=taskwarrior time pulseaudio cpu memory battery sep power
 ; }}}
 ; --------------------------------------------------------------------------------------------
@@ -154,7 +155,7 @@ click-left = kill -USR1 %pid%
 type = custom/text
 content =   
 content-foreground = #ff79c6
-click-left = ~/.config/rofi/scripts/menu_powermenu.sh
+click-left = powermenu
 content-padding = 3
 ; }}}
 ; Sep {{{
@@ -199,7 +200,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6601
 format-online-font = 1
-format-online = %{A4:mpc --host=localhost --port=6601 seek +5:}%{A5:mpc --host=localhost --port=6601 seek -5:}<icon-prev> <toggle> <icon-next> %{A1:~/.config/rofi/scripts/mpd.sh:}<label-song>%{A}<label-time>%{A}%{A}
+format-online = %{A4:mpc --host=localhost --port=6601 seek +5:}%{A5:mpc --host=localhost --port=6601 seek -5:}<icon-prev> <toggle> <icon-next> %{A1:xdotool key "Alt+Shift+s":}<label-song>%{A}<label-time>%{A}%{A}
 format-online-padding = 2 1
 format-online-foreground = #d9bff2
 format-online-background = ${colors.background}
@@ -311,7 +312,7 @@ label-padding = 2
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = %{A3:~/.config/rofi/scripts/volume.sh:}%{A2:kitty pulsemixer:}<ramp-volume> <bar-volume>%{A}%{A}
+format-volume = %{A2:st -e pulsemixer:}<ramp-volume> <bar-volume>%{A}
 use-ui-max = false
 interval = 5
 
@@ -345,10 +346,10 @@ full-at = 100
 time-format = %H:%M
 battery = BAT0
 adapter = AC
-format-charging = %{A1:~/.config/rofi/scripts/battery.sh:} <animation-charging> <label-charging>%{A} %{F#8897f4}%{F-}
+format-charging = <animation-charging> <label-charging> %{F#8897f4}%{F-}
 ;format-discharging = %{o#9786d1}%{+o}%{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging> %{A}%{-o} %{F#8897f4}%{F-}
-format-discharging = %{A1:~/.config/rofi/scripts/battery.sh:} <ramp-capacity> <label-discharging>%{A} %{F#8897f4}%{F-}
-format-full = <label-full> %{F#8897f4}%{F-}
+format-discharging = <ramp-capacity> <label-discharging> %{F#8897f4}%{F-}
+format-full = <label-full>%{F#8897f4}%{F-}
 
 label-discharging-foreground = #9786d1
 label-charging-foreground = #9786d1
