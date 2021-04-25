@@ -24,7 +24,7 @@ I have working workspaces for bspwm and i3 (I believe) setup in their separate c
 config-xmonad is the most updated and will be from now on.
 
 1. first cd into ~/.config then clone the repo
-        `cd ~/.config; git clone https://github.com/Shadorain/shadobar.git` 
+        `cd ~/.config; git clone https://github.com/Shadorain/shadobar-2.git` 
 2. cd into shadobar directory 
         `cd ~/.config/shadobar/`
 3. Copy/move the entire rofi directory into *~/.config* 
