@@ -55,8 +55,8 @@ font-7="Source Code Pro:pixelsize=12:weight=40:antialias=true:autohint=true"
 font-8="icomoon:style=Regular:size=17;6"
 
 modules-left = launcher workspaces layout-xmonad
-; modules-center = cava mpd
-modules-center = mpd
+modules-center = cava mpd
+; modules-center = mpd
 modules-right=taskwarrior time pulseaudio cpu memory battery sep power
 ; }}}
 ; --------------------------------------------------------------------------------------------
@@ -78,8 +78,9 @@ wm-restack = xmonad
 ; Launcher {{{
 [module/launcher]
 type=custom/text
-; content = "  "
-content = "  "
+content = "  "
+; wolf symbol
+;content = "  "
 ; content = "  "
 ; content = "  "
 ; content = "  "
@@ -156,7 +157,7 @@ click-left = kill -USR1 %pid%
 type = custom/text
 content =   
 content-foreground = #ff79c6
-click-left = powermenu
+click-left = ~/.config/rofi/bin/powermenu
 content-padding = 3
 ; }}}
 ; Sep {{{
@@ -301,7 +302,8 @@ interval = 1.0
 time = %H:%M
 date = %d %b
 
-label=%{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)":}%{A2:setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse:}%{A3:setsid -f "$TERMINAL" ~/vimwiki/diary/$YEAR-$MONTH-$DAY.md:}%time%%{A}%{A}%{A}
+; label=%{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)":}%{A2:setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse:}%{A3:setsid -f "$TERMINAL" ~/vimwiki/diary/$YEAR-$MONTH-$DAY.md:}%time%%{A}%{A}%{A}
+label=%{A1:notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" :}%time%%{A}%{A}%{A}
 ;label-foreground = #1ea69d
 label-foreground = #6f88e8
 label-background = ${colors.background}
